@@ -1,0 +1,15 @@
+# eslint 忽略检查
+node_modules
+dist
+dist-sit
+dist-uat
+git-cz
+*.css
+*.less
+*.scss
+*.jpg
+*.png
+*.gif
+*.svg
+*.html
+*.d.ts

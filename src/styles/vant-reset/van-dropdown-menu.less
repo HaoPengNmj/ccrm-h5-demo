@@ -1,0 +1,15 @@
+// 重定制van-dropdown-menu
+
+:root:root {
+  --van-dropdown-menu-shadow: none; // 去掉阴影
+  --van-dropdown-menu-height: 60px;
+  --van-dropdown-menu-title-font-size: 26px;
+  --van-dropdown-menu-content-max-height: 60vh;
+  --van-dropdown-menu-background: transparent;
+  --van-dropdown-menu-title-padding: 0px;
+}
+
+// 解决van-dropdown-menu内打开弹出层的z-index问题!!!
+.van-dropdown-menu__bar--opened {
+  z-index: auto !important;
+}

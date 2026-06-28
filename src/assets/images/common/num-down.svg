@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="20px" viewBox="0 0 14 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>箭头</title>
+    <g id="业绩" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="业绩-业绩指标" transform="translate(-654, -535)" fill="#43BB67" fill-rule="nonzero">
+            <g id="1" transform="translate(32, 290)">
+                <g id="数据卡片" transform="translate(30, 88)">
+                    <polygon id="箭头" points="599.933333 157 598.377778 157 598.377778 174.28345 593.088889 169.152188 592 170.208624 599 177 606 170.208624 604.911111 169.152188 599.933333 173.981611"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

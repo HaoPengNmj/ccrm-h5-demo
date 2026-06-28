@@ -1,0 +1,76 @@
+#清单文件 CLW 20241220
+#本文件是编译打包清单，编译和进行编译后的打包动作
+#一、编译打包顺序
+#    1、先统一执行编译指令，再统一执行打包指令。
+#    2、编译、打包是两个独立过程。
+#    3、编译或打包的执行顺序按本文件命令的先后顺序进行。
+#二、文件格式约定
+#    1、本文件以纯文本格式保存。
+#    2、每个命令占一行，不支持续行，命令顶格书写。
+#    3、可以添加注释行，注释以“#”开头，不支持命令行注释，如需注释须单独一行。
+#    4、执行时忽略注释、空行。
+#三、编译打包命令
+#    1、编译环境命令
+#        编译环境命令以“@”开头，后跟三个参数，参数使用“|”分割。
+#        第一个参数是用于编译的环境，maven、ant、node等，目前只支持这3类
+#        第二个参数是编译器版本，jdk-8u202、jdk-1.6.0_45、
+#        node-10.21.0、node-11.1.0、node-12.13.1、node-14.19.0、node-14.21.3、node-16.20.2、node-18.20.5
+#        目前只支持上述编译器版本
+#        第三个参数是编译备注
+#    2、编译命令
+#        编译命令以“!"开头，后跟需要执行的编译命令,如:
+#        !mvn clean package -DskipTestes
+#        总体例子：
+#        @maven|jdk-8u202|后端编译
+#        !mvn clean package -DskipTestes
+#    3、打包命令
+#        打包命令以">"开头，后跟打包方式和包前缀，
+#        打包方式目前有：tar-gz、docker两种，打包方式必须与前面一致,
+#        包前缀为符合操作系统文件名命名规则的字符串，
+#        打包方式和包前缀使用"|"分割。
+#        如：
+#        >tar-gz|cmis_main
+#        或
+#        >docker|mcp-vue-pc
+#    4、打包清单
+#    4.1 在打包命令的后续行为此包的文件清单，清单以“:”开头，各参数用“|”分隔。
+#    4.2 tar-gz方式时，由2个参数组成，分别为源和目标，
+#        源可以使用符合操作系统的通配符，目标不能使用通配符，
+#        源和目标如结尾为“/”则认为是目录，否则认为是文件，
+#        源和目标以“/”开头，
+#        源使用本文件所在目录作为根，
+#        目标则是部署目标目录作为根。
+#        如：复制/target/sample.jar到部署目录的/bin目录
+#        :/target/sample.jar|/bin/
+#        如：复制/target/lib目录及其中全部内容到部署目录的/bin目录
+#        :/target/lib/|/bin/
+#        如：复制/target/lib/common*.jar到部署目录的/bin/lib目录
+#        :/target/lib/common*.jar|/bin/lib/
+#        如：复制/config/app.prod.yml到部署目录的/bin/app.yml
+#        :/config/app.prod.yml|/bin/app.yml
+#    4.3 docker方式时，由4个参数组成，分别为Dockerfile文件名称、目标镜像tag、构建目录、镜像导出文件名
+#        Dockerfile文件名和构建目录必须以“/”开头，使用本文件所在目录作为根。
+#        镜像导出文件名不能指定路径，只需制定文件名。
+#        如：根据/Dockerfile.prod,以/target目录作为根目录，建立tag为prod:1.0的镜像并导出为prod-1.0.tar
+#        :/Dockerfile.prod|prod:1.0|/target|prod-1.0.tar
+#    5、总体例子
+#    使用tar-gz方式打包文件，文件前缀是sample-pack
+#    >tar-gz|sample-pack
+#    :/target/sample.jar|/bin/
+#    :/target/app.prod.yml|/bin/app.yml
+#    :/target/lib/|/bin/lib/
+#
+#    >docker|docker-sample-pack
+#    :/Dockerfile.prod|prod:1.0|/target|prod-1.0.tar
+#
+
+#全部编译
+@node|node-20.13.0|中小需求XXX投产
+!tar xvzf node_modules.tar.gz
+!chmod +x node_modules/.bin/*
+!npm run build:uat2 
+
+
+#文件打包
+>tar-gz|dmph5
+:/dist/|/

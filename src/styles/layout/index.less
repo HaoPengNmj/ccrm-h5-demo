@@ -1,0 +1,68 @@
+@pg-header: 92px; //顶部高度
+@pg-tabbar: 100px; //底部高度
+@pg-ios-head: 80px;
+@ly-has: {
+  only: 0;
+  header: 92px;
+  footer: 100px;
+  both: 192px;
+};
+
+.layout {
+  width: 100%;
+  height: 100%;
+}
+.layout-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  &-main {
+    flex: auto;
+    width: 100%;
+    background-color: @background-color;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .layout-has {
+    each(@ly-has, {
+        &-@{key} {
+          height:~"calc(100% - @{value})";
+          height:~"calc(100% - @{value})";
+        }
+      });
+  }
+}
+.ios-app-box {
+  .layout-box {
+    .layout-has {
+      each(@ly-has, {
+          &-@{key} {
+            height:~"calc(100% - @{value} - @{pg-ios-head})" !important;
+            height:~"calc(100% - @{value} - @{pg-ios-head})" !important;
+          }
+        });
+    }
+  }
+}
+.nav-header {
+  width: 100%;
+  height: @pg-header;
+}
+
+.layout-box-main {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + @pg-tabbar);
+}
+
+.bottom-bar {
+  width: 100%;
+  height: calc(constant(safe-area-inset-bottom) + @pg-tabbar);
+  height: calc(env(safe-area-inset-bottom) + @pg-tabbar);
+
+  .van-tabbar {
+    position: relative;
+    bottom: 0;
+    height: calc(constant(safe-area-inset-bottom) + @pg-tabbar);
+    height: calc(env(safe-area-inset-bottom) + @pg-tabbar);
+  }
+}

@@ -1,0 +1,57 @@
+.login {
+  background-color: @white;
+  padding: 231px 60px;
+  &-header {
+    width: 100%;
+    &-logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 40px;
+    }
+    .login-spec_large {
+      font-family: PingFangSC-Medium;
+      font-size: 56px;
+      color: @text;
+      letter-spacing: 0;
+      line-height: 56px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    .login-spec_medium {
+      font-family: PingFangSC-Regular;
+      font-size: @font-size-32;
+      color: @text;
+      letter-spacing: 0;
+      line-height: 32px;
+      font-weight: 400;
+      margin-bottom: 100px;
+    }
+  }
+  &-form {
+    &-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      .van-image {
+        height: 40px;
+        width: 40px;
+      }
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 48px;
+      :deep(.van-cell) {
+        background: @gray-1;
+        border-radius: 46px;
+      }
+    }
+    &-btn {
+      margin-top: 80px;
+    }
+  }
+}
+
+:deep(.van-field__control) {
+  color: #222;
+}

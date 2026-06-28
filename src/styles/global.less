@@ -1,0 +1,88 @@
+@import './reset.less';
+@import './variable.less';
+@import './vant-reset/index.less';
+
+//10、11号字体
+.font20 {
+  font-size: @font-size-40;
+  transform: scale(0.5, 0.5);
+}
+.font22 {
+  font-size: @font-size-44;
+  transform: scale(0.5, 0.5);
+}
+#flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * 搜索框filter图标样式
+ * 目前应用场景：全局搜索框，勿删
+ */
+.filter-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 32px;
+  .filter-icon {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+/**
+ * 卡片内部通用布局及文本样式
+ * 目前应用场景：卡片内部，勿删
+ */
+.grow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .gcol {
+    flex: auto;
+  }
+  & + .grow {
+    margin-top: 24px;
+  }
+}
+.glabel {
+  font-family: PingFangSC-Regular;
+  font-size: @font-size-24;
+  color: @gray;
+  letter-spacing: 0;
+  line-height: 28px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.gvalue {
+  font-family: PingFangSC-Regular;
+  font-size: @font-size-24;
+  color: @text;
+  letter-spacing: 0;
+  line-height: 28px;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+.gform {
+  .van-cell-group {
+    max-height: calc(60vh - 155px);
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  &-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 32px 34px;
+    .van-button + .van-button {
+      margin-left: 30px;
+    }
+  }
+}

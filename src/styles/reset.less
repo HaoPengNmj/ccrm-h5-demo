@@ -1,0 +1,79 @@
+/**
+ * 文件名称: reset.less
+ * 描述: 此文件包含一系列CSS规则，用于重置浏览器的默认样式，确保所有元素在不同浏览器中具有一致的表现。
+ *       这些规则消除了默认边距、填充、字体大小和其他可能因浏览器而异的样式。
+ * 注意: 在修改前请仔细考虑，因为这些规则可能会影响到页面的整体布局和设计。
+ */
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 28px !important;
+  color: #222;
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+span,
+output {
+  display: inline-block;
+}
+p {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0px;
+  height: 0px;
+}
+
+/* 使用 appearance 属性移除浏览器提供的默认样式和装饰元素 */
+input[type='password'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+// 隐藏 IE 和 Edge 浏览器中的眼睛图标
+input[type='password']::-ms-reveal {
+  display: none !important;
+}
+// 隐藏 WebKit 内核浏览器（如 Chrome 和 Safari）中的眼睛图标
+input[type='password']::-webkit-input-type-button {
+  display: none !important;
+}
+
+// 高德地图logoZ轴覆盖问题
+.amap-copyright,
+.amap-logo {
+  z-index: auto;
+}
+.amap-sug-result {
+  z-index: 2024;
+}

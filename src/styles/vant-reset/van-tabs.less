@@ -1,0 +1,22 @@
+// 重定制van-tab
+
+// 1.修改card类型样式，根据UI图改为椭圆
+:root:root {
+  --van-tabs-card-height: 60px;
+}
+
+.van-tabs__nav--card {
+  border: none;
+  background-color: @gray-1 !important;
+  border-radius: var(--van-radius-max) !important;
+  .van-tab {
+    border: none;
+    color: @gray;
+    border-radius: var(--van-radius-max);
+    padding: 0 22px;
+  }
+  .van-tab--active {
+    color: @white;
+    background-image: linear-gradient(90deg, #fcc824 0%, #ff8812 100%);
+  }
+}

@@ -1,0 +1,25 @@
+// 重定制van-button
+
+:root:root {
+  --van-border-width: 0px;
+  --van-button-default-height: 42px; // 默认button
+  --van-button-normal-padding: 12px;
+  --van-button-default-color: @gray;
+  --van-button-normal-font-size: @font-size-22;
+  --van-button-small-height: 60px; // 中号button
+  --van-button-small-padding: 16px 26px;
+  --van-button-small-font-size: @font-size-28;
+  --van-button-large-height: 90px; // 大号button
+  --van-button-default-font-size: @font-size-34;
+  --van-button-primary-background: linear-gradient(90deg, #fcc824 0%, #ff8812 100%); // 主题button
+}
+// 重定制 van-button  --plain类型样式，根据UI图改为主题色
+.van-button {
+  box-sizing: border-box;
+}
+.van-button--plain {
+  border-width: 1px;
+}
+.van-button--plain.van-button--primary {
+  color: var(--van-primary-color);
+}
